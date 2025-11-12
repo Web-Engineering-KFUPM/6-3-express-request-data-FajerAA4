@@ -109,9 +109,12 @@ const app = express();
 
 
 // create server
-app.listen(3000, () => {
-    console.log("API running at http://localhost:3000");
+
+// Root route — confirms server is up
+app.get("/", (req, res) => {
+    res.json({ ok: true, msg: "API running at http://localhost:3000" });
 });
+
 
 // Query params: /echo?name=Ali&age=22
 app.get("/echo", (req, res) => {
@@ -153,5 +156,9 @@ app.get("/users/:userId", (req, res) => {
         ok: true,
         userId: req.userIdNum,
     });
+});
+
+app.listen(3000, () => {
+    console.log("API running at http://localhost:3000");
 });
 
