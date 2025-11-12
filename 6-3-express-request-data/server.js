@@ -148,6 +148,10 @@ app.param("userId", (req, res, next, userId) => {
 
 
 // Route params: /users/:userId route
-
-
+app.get("/users/:userId", (req, res) => {
+    res.json({
+        ok: true,
+        userId: req.userIdNum,
+    });
+});
 
